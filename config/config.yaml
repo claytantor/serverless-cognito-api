@@ -1,0 +1,7 @@
+dev:
+  aws:
+      region: us-east-1
+      cognitio:
+          userPoolId: 'us-east-1_PUkU7rkEP'
+          userPoolClientId: '52qvpq4g4fr31h9r02cfnijf71'
+          region: 'us-east-1'

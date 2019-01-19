@@ -1,0 +1,13 @@
+venv
+venv/*
+
+.serverless
+*.pyc
+
+node_modules
+node_modules/*
+
+.idea
+.idea/*
+package.json
+package-lock.json

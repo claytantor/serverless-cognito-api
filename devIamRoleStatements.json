@@ -1,0 +1,49 @@
+[
+  {
+    "Effect": "Allow",
+    "Action": [
+      "lambda:InvokeFunction"
+    ],
+    "Resource": "*"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "sqs:*"
+    ],
+    "Resource": "*"
+  },
+  {
+      "Action": [
+          "kms:Decrypt"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:kms:us-east-1:705212546939:alias/aws/ssm"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "ssm:GetParameter"
+    ],
+    "Resource": "arn:aws:ssm:us-east-1:705212546939:parameter/ledticker-api-dev-cronWeather-appid"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+      "cloudwatch:PutMetricData",
+      "cloudwatch:ListMetrics",
+      "cloudwatch:GetMetricStatistics"
+    ],
+    "Resource": "*"
+  },
+  {
+    "Effect": "Allow",
+    "Action": [
+        "iot:Publish"
+    ],
+    "Resource": [
+        "*"
+    ]
+  }
+
+]
