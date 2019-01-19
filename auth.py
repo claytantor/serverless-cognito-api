@@ -26,8 +26,6 @@ keys = json.loads(response.read())['keys']
 
 def get_claims(event, context):
 
-    print 'get claims a'
-
     #print json.dumps(event)
     token = event['authorizationToken'][7:]
     # get the kid from the headers prior to verification
@@ -80,10 +78,10 @@ def get_claims(event, context):
 #   "token_use": "id",
 #   "auth_time": 1547619208,
 #   "iss": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_PUkU7rkEP",
-#   "cognito:username": "claytantor@gmail.com",
+#   "cognito:username": "foobar@gmail.com",
 #   "exp": 1547622808,
 #   "iat": 1547619208,
-#   "email": "claytantor@gmail.com"
+#   "email": "foobar@gmail.com"
 # }
 def authorize(event, context):
     print("Client token: " + event['authorizationToken'])
