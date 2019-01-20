@@ -25,11 +25,9 @@ keys = json.loads(response.read())['keys']
 
 def get_claims(event, context):
 
-    #print json.dumps(event)
     token = event['authorizationToken'][7:]
     # get the kid from the headers prior to verification
     headers = jwt.get_unverified_headers(token)
-    #print json.dumps(jwt.get_unverified_headers(token))
     kid = headers['kid']
     # search for the kid in the downloaded public keys
     key_index = -1

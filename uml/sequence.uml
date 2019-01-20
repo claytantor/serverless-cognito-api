@@ -1,0 +1,21 @@
+Title Lambda Custom Authorizer
+
+opt auth
+"Client App"->Cognito:basic auth
+"Client App"->Cognito:get access token
+end
+
+opt REST Call
+"Client App"->"Client App":manage access token
+"Client App"->"API Gateway":call protected REST\ncall with Bearer
+"API Gateway"->"Authorizer":verify clains
+"Authorizer"->"Authorizer":generate policy from claims
+"Authorizer"->"API Gateway":evaluate policy
+  opt Allow
+    "API Gateway"->"REST Handler": invoke API call
+    "API Gateway"->"Client App": return body with OK
+  end
+  opt Deny
+    "API Gateway"->"Client App": return not authorized
+  end
+end
