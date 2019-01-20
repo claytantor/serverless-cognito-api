@@ -1,4 +1,4 @@
-service: flashlex-web
+service: serverless-cognito-api
 
 plugins:
   - serverless-python-requirements

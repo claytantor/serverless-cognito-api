@@ -12,7 +12,6 @@ from jose.utils import base64url_decode
 env = 'dev'
 config = config.get_config()[env]
 
-
 region = config['aws']['region']
 userpool_id = config['aws']['cognitio']['userPoolId']
 app_client_id = config['aws']['cognitio']['userPoolClientId']
@@ -68,7 +67,6 @@ def get_claims(event, context):
         return False
 
     # now we can use the claims
-    print(claims)
     return claims
 
 # {
@@ -315,3 +313,12 @@ class AuthPolicy(object):
         policy['policyDocument']['Statement'].extend(self._getStatementForEffect("Deny", self.denyMethods))
 
         return policy
+
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("token", help="the jwt token")
+    args = parser.parse_args()
+    # for testing locally you can enter the JWT ID Token here
+    event = {'authorizationToken': 'Bearer {0}'.format(args.token)}
+    authorize(event, None)
