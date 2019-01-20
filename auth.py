@@ -13,15 +13,9 @@ from cognitoutils import get_keys
 env = 'dev'
 config = config.get_config()[env]
 
-# region = config['aws']['region']
-# userpool_id = config['aws']['cognitio']['userPoolId']
-# app_client_id = config['aws']['cognitio']['userPoolClientId']
-# keys_url = 'https://cognito-idp.{}.amazonaws.com/{}/.well-known/jwks.json'.format(region, userpool_id)
 # # instead of re-downloading the public keys every time
 # # we download them only on cold start
 # # https://aws.amazon.com/blogs/compute/container-reuse-in-lambda/
-# response = urllib.urlopen(keys_url)
-#keys = json.loads(response.read())['keys']
 keys = get_keys()
 
 def get_claims(event, context):
