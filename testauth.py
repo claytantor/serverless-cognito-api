@@ -6,7 +6,6 @@ import json
 import argparse
 from auth import get_claims
 
-from cognitoutils import get_keys
 from jose import jwt, JWTError
 from warrant import Cognito
 
